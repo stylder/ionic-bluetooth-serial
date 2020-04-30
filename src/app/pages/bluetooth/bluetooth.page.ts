@@ -17,7 +17,7 @@ export class BluetoothPage implements OnInit, OnDestroy {
   showSpinner = false;
   isConnected = false;
   message = '';
-  wifi = {};
+  wifi:any = {};
   messages = [];
 
   constructor(
@@ -145,7 +145,8 @@ export class BluetoothPage implements OnInit, OnDestroy {
    * Permite enviar mensajes de texto vía serial al conectarse por bluetooth.
    */
   sendMessage(message: string) {
-    const _mensaje = `W,${this.wifi.ssis},${this.wifi.passsword}\n`;
+    let _mensaje = `W,${this.wifi.ssis},${this.wifi.passsword}\n`;
+        _mensaje = _mensaje.replace('ñ', '\u00f1')
     this.presentToast(_mensaje);
 
     this.bluetooth.dataInOut(`${_mensaje}\n`).subscribe(data => {
