@@ -7,7 +7,9 @@ La librería no está optimizada para conectar dos dispositivos con android.
 Para descargar usa:
 
 ```bash
-$ git clone https://github.com/stylder/ionic-bluetooth-serial.git
-$ npm install
-$ ionic cordova run android --device
+git clone https://github.com/stylder/ionic-bluetooth-serial.git
+cd ionic-bluetooth-serial
+npm install
+ionic cordova run android --device
+ionic cordova build android
 ```
